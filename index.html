@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main class="card">
+        <div class="title">Weather Now</div>
+        <div class="subtitle">Check current conditions anywhere</div>
+
+        <label class="search-label" for="city">Enter city</label>
+        <div class="search">
+            <input type="text" id="city" name="city" placeholder="City name" autocomplete="off">
+            <button id="getWeather" type="button">Search</button>
+        </div>
+
+        <div id="weatherDisplay" aria-live="polite"></div>
+        <div class="footer">Powered by WeatherAPI.com</div>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
