@@ -1,32 +1,26 @@
 # Weather App
 
-Live demo: https://weather-app-gold-eight-14.vercel.app/
+## Live Demo
+[🌐 View Live App](https://weather-app-gold-eight-14.vercel.app/)
 
-Minimal weather app that fetches current conditions from WeatherAPI and renders them in a clean, responsive UI. The browser never sees the API key because requests go through a Vercel Serverless Function.
+## 📌 Overview
+This project keeps the code simple and split into small files so you can see the flow clearly.
 
-## Project Structure
+## ⚙️ Project Structure
+- index.html – loads the page, styles, and main JavaScript module
+- js/app.js – entry point, handles user input
+- js/api.js – handles API calls
+- js/ui.js – updates UI
+- js/utils.js – helper functions
+- config/config.js – API config
 
-1. `index.html` loads the page, styles, and main JavaScript module.
-2. `js/app.js` handles user input and coordinates the UI updates.
-3. `js/api.js` calls the serverless endpoint at `/api/weather`.
-4. `js/ui.js` renders messages and weather data.
-5. `api/weather.js` is the Vercel Serverless Function that talks to WeatherAPI.
+## 🔄 How It Works
+1. Enter a city and click Get Weather
+2. app.js validates input and calls api.js
+3. api.js fetches weather data
+4. ui.js renders the result
 
-## How It Works
-
-- Enter a city and click **Search**.
-- The browser calls `/api/weather?city=London`.
-- The serverless function fetches WeatherAPI data using `WEATHER_API_KEY` from the environment.
-- The UI renders the returned JSON.
-
-## Setup (Local)
-
-1. Get a free API key from https://www.weatherapi.com/
-2. Run the project on a local server (Live Server or any static server).
-
-## Deploy (Vercel)
-
-1. Import the repo in Vercel.
-2. Add an environment variable:
-	- `WEATHER_API_KEY` = your WeatherAPI key
-3. Deploy.
+## 🛠 Setup
+1. Get API key from https://www.weatherapi.com/
+2. Replace `YOUR_WEATHERAPI_KEY` in config/config.js
+3. Open index.html or use Live Server
