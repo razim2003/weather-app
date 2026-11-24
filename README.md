@@ -1,26 +1,15 @@
-# Weather App
+# Weather Now
 
-## Live Demo
-[🌐 View Live App](https://weather-app-gold-eight-14.vercel.app/)
+[Live app](https://weather-app-gold-eight-14.vercel.app/)
 
-## 📌 Overview
-This project keeps the code simple and split into small files so you can see the flow clearly.
+Weather Now is an installable progressive web app. It searches current conditions through the WeatherAPI service, keeps the app shell available offline, and can show the last successfully loaded weather for a city when the network is unavailable.
 
-## ⚙️ Project Structure
-- index.html – loads the page, styles, and main JavaScript module
-- js/app.js – entry point, handles user input
-- js/api.js – handles API calls
-- js/ui.js – updates UI
-- js/utils.js – helper functions
-- config/config.js – API config
+## Run locally
 
-## 🔄 How It Works
-1. Enter a city and click Get Weather
-2. app.js validates input and calls api.js
-3. api.js fetches weather data
-4. ui.js renders the result
+The app uses the Vercel serverless function in `api/weather.js`, so serve it with Vercel's local development server rather than opening `index.html` directly:
 
-## 🛠 Setup
-1. Get API key from https://www.weatherapi.com/
-2. Replace `YOUR_WEATHERAPI_KEY` in config/config.js
-3. Open index.html or use Live Server
+1. Install the Vercel CLI.
+2. Set the `WEATHER_API_KEY` environment variable using an API key from [WeatherAPI](https://www.weatherapi.com/).
+3. Run `vercel dev` from the project directory.
+
+The app can be installed from a supported browser when served over HTTPS (or localhost). On iOS, use the browser's **Add to Home Screen** option. Previously loaded app files and weather searches are available offline; a new city search still requires a network connection.

@@ -11,12 +11,40 @@ async function handleSearch() {
     renderMessage("Loading...");
 
     try {
-        const data = await getCurrentWeather(city);
-        renderWeather(data);
+        const result = await getCurrentWeather(city);
+        renderWeather(result.data, result);
     } catch (error) {
-        renderMessage("Unable to fetch weather. Check the city name or API key.");
+        renderMessage(error.message || "Unable to fetch weather. Check your connection or try again.");
     }
 }
 
 bindSearch(handleSearch);
 renderMessage("Enter a city and press Search.");
+
+const installButton = document.getElementById("installApp");
+let installPrompt;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    installPrompt = event;
+    installButton.hidden = false;
+});
+
+installButton.addEventListener("click", async () => {
+    if (!installPrompt) return;
+
+    await installPrompt.prompt();
+    installPrompt = null;
+    installButton.hidden = true;
+});
+
+window.addEventListener("appinstalled", () => {
+    installPrompt = null;
+    installButton.hidden = true;
+});
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch((error) => {
+        console.error("Service worker registration failed:", error);
+    });
+}

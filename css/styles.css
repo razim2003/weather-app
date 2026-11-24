@@ -193,6 +193,39 @@ body {
     text-align: center;
 }
 
+.app-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.install-button {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.install-button:hover {
+    border-color: var(--accent);
+}
+
+.install-button[hidden] {
+    display: none;
+}
+
+.offline-note {
+    padding: 10px 12px;
+    border: 1px solid #f3d19c;
+    border-radius: 12px;
+    background: #fff8e8;
+    color: #76520d;
+    font-size: 0.85rem;
+}
+
 @media (max-width: 600px) {
     .card {
         padding: 22px;

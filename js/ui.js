@@ -19,7 +19,7 @@ export function renderMessage(message) {
     weatherDisplay.innerHTML = `<div class="message">${message}</div>`;
 }
 
-export function renderWeather(data) {
+export function renderWeather(data, { isOffline = false, cachedAt = null } = {}) {
     const location = data.location?.name || "Unknown";
     const region = data.location?.region || "";
     const country = data.location?.country || "";
@@ -33,9 +33,13 @@ export function renderWeather(data) {
     const iconMarkup = iconUrl
         ? `<img class="weather-icon" src="${iconUrl}" alt="${condition}">`
         : "";
+    const offlineMessage = isOffline
+        ? `<div class="offline-note">Offline: showing saved weather${cachedAt ? ` from ${new Date(cachedAt).toLocaleString()}` : ""}.</div>`
+        : "";
 
     weatherDisplay.innerHTML = `
         <div class="weather">
+            ${offlineMessage}
             <div class="weather-main">
                 ${iconMarkup}
                 <div class="weather-temp">${tempC}&deg;C</div>
